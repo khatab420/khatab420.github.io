@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0077B5 0%, #00A0DC 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            height: 450px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .card {
+            min-width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .card:nth-child(even) {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+
+        .app-number {
+            display: inline-block;
+            background: rgba(0, 119, 181, 0.15);
+            color: #0077B5;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .app-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .app-description {
+            font-size: 16px;
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            max-width: 450px;
+        }
+
+        .play-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #0077B5;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+        }
+
+        .play-store-btn:hover {
+            background: #005885;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: white;
+        }
+
+        .nav-btn {
+            background: #0077B5;
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #005885;
+            transform: scale(1.1);
+        }
+
+        .nav-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #0077B5;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .counter {
+            font-weight: 600;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 My App Portfolio</h1>
+            <p>13 Apps | Available on Google Play Store</p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <!-- App 1 -->
+                <div class="card">
+                    <div class="app-number">App 1 of 13</div>
+                    <div class="app-icon">📚</div>
+                    <h2 class="app-name">Pashto English Dictionary</h2>
+                    <p class="app-description">Bridge language barriers with this comprehensive Pashto-English translation tool. Perfect for students, travelers, and language enthusiasts.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.imrankhan.pahstoenglishdictionary.khan.khunduq.app.englistopashtodictionary" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 2 -->
+                <div class="card">
+                    <div class="app-number">App 2 of 13</div>
+                    <div class="app-icon">🎓</div>
+                    <h2 class="app-name">CELC</h2>
+                    <p class="app-description">Your gateway to quality education and learning resources. Transform your learning experience with interactive content and progress tracking.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lighteast.change.academy" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 3 -->
+                <div class="card">
+                    <div class="app-number">App 3 of 13</div>
+                    <div class="app-icon">🔍</div>
+                    <h2 class="app-name">PashtOCR</h2>
+                    <p class="app-description">Advanced OCR technology for Pashto text recognition. Convert images to editable text instantly with high accuracy.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.smartechafghanistan.com.tesseractexample" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 4 -->
+                <div class="card">
+                    <div class="app-number">App 4 of 13</div>
+                    <div class="app-icon">📱</div>
+                    <h2 class="app-name">Mobile Checkout</h2>
+                    <p class="app-description">Comprehensive mobile device testing tool. Check hardware, sensors, and performance metrics in one convenient app.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lightest.mobiletester" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 5 -->
+                <div class="card">
+                    <div class="app-number">App 5 of 13</div>
+                    <div class="app-icon">🔐</div>
+                    <h2 class="app-name">Encrypting Keyboard</h2>
+                    <p class="app-description">Type with confidence! Secure keyboard with built-in encryption to protect your sensitive messages and data.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lightest.encryptingkeyboard" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 6 -->
+                <div class="card">
+                    <div class="app-number">App 6 of 13</div>
+                    <div class="app-icon">🌐</div>
+                    <h2 class="app-name">AFG DNS Changer</h2>
+                    <p class="app-description">Free & safe DNS changing solution. Improve your browsing speed and access restricted content securely.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lighteast.afdns" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 7 -->
+                <div class="card">
+                    <div class="app-number">App 7 of 13</div>
+                    <div class="app-icon">⚡</div>
+                    <h2 class="app-name">Internet Speed</h2>
+                    <p class="app-description">Monitor your network performance in real-time. Test download/upload speeds and track your connection quality.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lightest.internetspeed" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 8 -->
+                <div class="card">
+                    <div class="app-number">App 8 of 13</div>
+                    <div class="app-icon">🌍</div>
+                    <h2 class="app-name">Mini Browser</h2>
+                    <p class="app-description">Lightweight, fast, and private browsing experience. Navigate the web efficiently with minimal resource usage.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lightest.veilbrowser" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 9 -->
+                <div class="card">
+                    <div class="app-number">App 9 of 13</div>
+                    <div class="app-icon">📤</div>
+                    <h2 class="app-name">AppShare</h2>
+                    <p class="app-description">Share apps instantly with nearby devices using WiFi Direct. No internet required for fast app transfers!</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.khataab.smartechafghanistan.wifidirectappsharer2" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 10 -->
+                <div class="card">
+                    <div class="app-number">App 10 of 13</div>
+                    <div class="app-icon">⚽</div>
+                    <h2 class="app-name">AfSport</h2>
+                    <p class="app-description">Stay updated with the latest sports news, scores, and highlights. Your all-in-one sports companion app.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lightest.afsport" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 11 -->
+                <div class="card">
+                    <div class="app-number">App 11 of 13</div>
+                    <div class="app-icon">👥</div>
+                    <h2 class="app-name">MyContacts</h2>
+                    <p class="app-description">Smart contact management made simple. Organize, backup, and manage your contacts efficiently.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.smartechafghanistan.khataaab.mycontacts3" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 12 -->
+                <div class="card">
+                    <div class="app-number">App 12 of 13</div>
+                    <div class="app-icon">✨</div>
+                    <h2 class="app-name">Awesome Text</h2>
+                    <p class="app-description">Create stunning text with stylish fonts and decorations. Make your messages stand out with creative typography.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lightest.awesometext" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+
+                <!-- App 13 -->
+                <div class="card">
+                    <div class="app-number">App 13 of 13</div>
+                    <div class="app-icon">⏱️</div>
+                    <h2 class="app-name">Count Down</h2>
+                    <p class="app-description">Never miss important events! Create beautiful countdown timers for your special moments and deadlines.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.lightest.countdown" class="play-store-btn" target="_blank">
+                        📱 View on Play Store
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="nav-btn" id="prevBtn" onclick="navigate(-1)">←</button>
+            <div class="dots" id="dotsContainer"></div>
+            <span class="counter" id="counter">1 / 13</span>
+            <button class="nav-btn" id="nextBtn" onclick="navigate(1)">→</button>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const totalApps = 13;
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('counter');
+        const dotsContainer = document.getElementById('dotsContainer');
+
+        // Create dots
+        for (let i = 0; i < totalApps; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            if (i === 0) dot.classList.add('active');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            counter.textContent = `${currentIndex + 1} / ${totalApps}`;
+            
+            // Update dots
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+            
+            // Update button states
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === totalApps - 1;
+        }
+
+        function navigate(direction) {
+            const newIndex = currentIndex + direction;
+            if (newIndex >= 0 && newIndex < totalApps) {
+                currentIndex = newIndex;
+                updateCarousel();
+            }
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) navigate(1);
+            if (touchEndX - touchStartX > 50) navigate(-1);
+        }
+
+        updateCarousel();
+    </script>
+</body>
+</html>
