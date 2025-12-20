@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberArmory - YouTube Channel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(239, 68, 68, 0.1));
+            border: 2px solid #ef4444;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-nav {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 15px 0;
+            border-bottom: 2px solid #ef4444;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-link {
+            background: #ef4444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.secondary {
+            background: #334155;
+        }
+
+        .nav-link.secondary:hover {
+            background: #475569;
+        }
+
+        .channel-logo {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 40px rgba(220, 38, 38, 0.5);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            color: #ef4444;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+
+        .tagline {
+            color: #94a3b8;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+        }
+
+        .subscribe-btn {
+            background: #ef4444;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .subscribe-btn:hover {
+            background: #dc2626;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(239, 68, 68, 0.6);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9em;
+        }
+
+        .section-title {
+            color: #ef4444;
+            font-size: 2em;
+            margin: 40px 0 25px;
+            text-align: center;
+        }
+
+        .about-section {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .about-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        .playlists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .playlist-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-8px);
+            border-color: #ef4444;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+        }
+
+        .playlist-thumbnail {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #ef4444;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .playlist-thumbnail::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(239, 68, 68, 0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .playlist-info {
+            padding: 20px;
+        }
+
+        .playlist-title {
+            color: #fff;
+            font-size: 1.15em;
+            margin-bottom: 10px;
+            font-weight: 600;
+            min-height: 50px;
+        }
+
+        .playlist-description {
+            color: #94a3b8;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .video-count {
+            color: #ef4444;
+            font-size: 0.9em;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .topic-tag {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            border: 1px solid #ef4444;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            color: #06b6d4;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid #06b6d4;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .channel-logo {
+                width: 120px;
+                height: 120px;
+                font-size: 3em;
+            }
+
+            .playlists-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .playlist-title {
+                font-size: 1em;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <h1 style="color: #ef4444; margin: 0; font-size: 1.5em;">🛡️ CyberArmory</h1>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 Portfolio</a>
+                <a href="AndroidApps.html" class="nav-link secondary">📱 Apps</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="channel-logo">🛡️</div>
+            <h1>CyberArmory</h1>
+            <p class="tagline">Your Digital Stronghold for Everything Tech and Tactical</p>
+            
+            <a href="https://www.youtube.com/@cyberarmory786?sub_confirmation=1" target="_blank" class="subscribe-btn">
+                ▶️ Subscribe on YouTube
+            </a>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">380+</div>
+                    <div class="stat-label">Videos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Playlists</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">249+</div>
+                    <div class="stat-label">Subscribers</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <h2 class="section-title">About CyberArmory</h2>
+            <p>
+                CyberArmory is your comprehensive learning platform for mastering modern programming languages, 
+                frameworks, and technologies. From Java EE and Vue.js to Android development and network security, 
+                we provide practical, hands-on tutorials in both English and Pashto. Whether you're a beginner 
+                or an advanced developer, our content helps you build real-world skills in software development, 
+                cybersecurity, and system administration.
+            </p>
+        </div>
+
+        <!-- Topics Covered -->
+        <h2 class="section-title">Topics Covered</h2>
+        <div class="topics">
+            <span class="topic-tag">☕ Java EE</span>
+            <span class="topic-tag">🎨 Vue.js</span>
+            <span class="topic-tag">⚛️ React.js</span>
+            <span class="topic-tag">📱 Android Development</span>
+            <span class="topic-tag">🔒 Ethical Hacking</span>
+            <span class="topic-tag">🌐 Cisco Networking</span>
+            <span class="topic-tag">🖥️ System Administration</span>
+            <span class="topic-tag">🐘 PHP</span>
+            <span class="topic-tag">🤖 AI & Machine Learning</span>
+            <span class="topic-tag">📡 MikroTik</span>
+        </div>
+
+        <!-- Web Development Section -->
+        <div class="category-section">
+            <h3 class="category-title">🌐 Web Development</h3>
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">☕</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Todo List Complete Example using JAVA EE & Vue Js</div>
+                        <p class="playlist-description">Build a complete full-stack application with Java EE backend and Vue.js frontend.</p>
+                        <div class="video-count">📹 8 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🎨</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Vue JS Complete Tutorials</div>
+                        <p class="playlist-description">Master Vue.js from basics to advanced concepts with practical examples.</p>
+                        <div class="video-count">📹 55 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">⚛️</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Complete React JS | په پښتو ژبه کې</div>
+                        <p class="playlist-description">Learn React.js in Pashto language with comprehensive tutorials.</p>
+                        <div class="video-count">📹 12 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">☕</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Java EE Complete Step by Step Learning Tutorials</div>
+                        <p class="playlist-description">Comprehensive Java Enterprise Edition course for building enterprise applications.</p>
+                        <div class="video-count">📹 23 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🐘</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">PHP Complete Course</div>
+                        <p class="playlist-description">Learn PHP programming from scratch for web development.</p>
+                        <div class="video-count">📹 3 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🎯</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Front End Development | په پښتو ژبه کې</div>
+                        <p class="playlist-description">Frontend development fundamentals taught in Pashto.</p>
+                        <div class="video-count">📹 2 Videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Development Section -->
+        <div class="category-section">
+            <h3 class="category-title">📱 Mobile Development</h3>
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🤖</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Android Programming using AIDE | اندروید پروګرام جوړول</div>
+                        <p class="playlist-description">Learn Android development directly on your smartphone using AIDE.</p>
+                        <div class="video-count">📹 54 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">📱</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Advance Android Tutorial Using Java</div>
+                        <p class="playlist-description">Advanced Android development techniques with Java programming.</p>
+                        <div class="video-count">📹 6 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🔧</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Kotlin Programming Using Smart Phone</div>
+                        <p class="playlist-description">Modern Android development with Kotlin on mobile devices.</p>
+                        <div class="video-count">📹 32 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">📦</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Applications</div>
+                        <p class="playlist-description">Build practical mobile applications from scratch.</p>
+                        <div class="video-count">📹 6 Videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programming Languages Section -->
+        <div class="category-section">
+            <h3 class="category-title">💻 Programming Languages</h3>
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">☕</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Java in Pashto Language</div>
+                        <p class="playlist-description">Learn Java programming fundamentals in Pashto language.</p>
+                        <div class="video-count">📹 21 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">⚡</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">ES6 Javascript Features</div>
+                        <p class="playlist-description">Modern JavaScript ES6+ features and best practices.</p>
+                        <div class="video-count">📹 8 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🔤</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">C Programming Course in Pashto</div>
+                        <p class="playlist-description">Learn C programming fundamentals in Pashto language.</p>
+                        <div class="video-count">📹 4 Videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Networking & Security Section -->
+        <div class="category-section">
+            <h3 class="category-title">🔒 Networking & Security</h3>
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🔐</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Ethical Hacking</div>
+                        <p class="playlist-description">Learn ethical hacking techniques and cybersecurity fundamentals.</p>
+                        <div class="video-count">📹 8 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🌐</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Cisco Network Practical</div>
+                        <p class="playlist-description">Hands-on Cisco networking tutorials and configurations.</p>
+                        <div class="video-count">📹 30 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">📡</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Mikrotik Router Complete</div>
+                        <p class="playlist-description">Complete MikroTik router configuration and management guide.</p>
+                        <div class="video-count">📹 4 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🕵️</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Hacking Story</div>
+                        <p class="playlist-description">Real-world hacking stories and cybersecurity case studies.</p>
+                        <div class="video-count">📹 10 Videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Administration Section -->
+        <div class="category-section">
+            <h3 class="category-title">🖥️ System Administration</h3>
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">⚙️</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">System Administration Practical</div>
+                        <p class="playlist-description">Practical system administration skills and server management.</p>
+                        <div class="video-count">📹 8 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🔧</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">System Calls</div>
+                        <p class="playlist-description">Understanding operating system calls and low-level programming.</p>
+                        <div class="video-count">📹 5 Videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI & Advanced Topics Section -->
+        <div class="category-section">
+            <h3 class="category-title">🤖 AI & Advanced Topics</h3>
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🧠</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Machine Learning in Java Language</div>
+                        <p class="playlist-description">Implement machine learning algorithms using Java.</p>
+                        <div class="video-count">📹 1 Video</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🤖</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">مصنوعي ځیرکتیا (Artificial Intelligence)</div>
+                        <p class="playlist-description">Learn AI concepts and applications in Pashto language.</p>
+                        <div class="video-count">📹 5 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🔬</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Advanced Computing</div>
+                        <p class="playlist-description">Explore cutting-edge computing technologies and paradigms.</p>
+                        <div class="video-count">📹 4 Videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology & Innovation Section -->
+        <div class="category-section">
+            <h3 class="category-title">🚀 Technology & Innovation</h3>
+            <div class="playlists-grid">
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🎖️</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Military Technologies</div>
+                        <p class="playlist-description">Exploring advanced military and defense technologies.</p>
+                        <div class="video-count">📹 15 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">💡</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Notable Inventions/Trends</div>
+                        <p class="playlist-description">Discover groundbreaking inventions and technological trends.</p>
+                        <div class="video-count">📹 5 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🌱</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Sustainability and Biotechnology</div>
+                        <p class="playlist-description">Sustainable technologies and biotech innovations.</p>
+                        <div class="video-count">📹 3 Videos</div>
+                    </div>
+                </div>
+
+                <div class="playlist-card" onclick="window.open('https://www.youtube.com/@cyberarmory786/playlists', '_blank')">
+                    <div class="playlist-thumbnail">🎮</div>
+                    <div class="playlist-info">
+                        <div class="playlist-title">Immersive Technologies</div>
+                        <p class="playlist-description">VR, AR, and other immersive technology experiences.</p>
+                        <div class="video-count">📹 2 Videos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="hero-section" style="margin-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 20px;">Ready to Start Learning?</h2>
+            <p style="color: #94a3b8; margin-bottom: 25px; font-size: 1.1em;">
+                Join the CyberArmory community with 380+ videos across 30+ playlists covering everything from web development to cybersecurity!
+            </p>
+            <a href="https://www.youtube.com/@cyberarmory786?sub_confirmation=1" target="_blank" class="subscribe-btn">
+                🔔 Subscribe & Turn on Notifications
+            </a>
+        </div>
+    </div>
+</body>
+</html>

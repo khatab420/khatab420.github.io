@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asmatullah Khataab - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 20px 0;
+            border-bottom: 2px solid #06b6d4;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            color: #06b6d4;
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: #94a3b8;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #1e293b;
+            color: #06b6d4;
+            border-color: #06b6d4;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+            margin-top: 30px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #06b6d4;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+        }
+
+        .hero-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid #06b6d4;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+        }
+
+        h2 {
+            color: #06b6d4;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            color: #06b6d4;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #06b6d4;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #0891b2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            background: #334155;
+        }
+
+        .btn-secondary:hover {
+            background: #475569;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .skill-category h4 {
+            color: #06b6d4;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #334155;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background: #1e293b;
+            margin: 10% auto;
+            padding: 30px;
+            border: 2px solid #06b6d4;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close {
+            color: #94a3b8;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+        }
+
+        .close:hover {
+            color: #06b6d4;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 8px;
+        }
+
+        .contact-item span {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-btn {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div>
+                <h1>Asmatullah Khataab</h1>
+                <p class="subtitle">Software Development Specialist</p>
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="showSection('about')">About</button>
+                <button class="nav-btn" onclick="showSection('experience')">Experience</button>
+                <button class="nav-btn" onclick="showSection('education')">Education</button>
+                <button class="nav-btn" onclick="showSection('skills')">Skills</button>
+                <a href="AndroidApps.html" class="nav-btn">📱 Android Apps</a>
+                <a href="YouTubeChennel.html" class="nav-btn">🎥 YouTube</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <div id="about" class="section active">
+            <div class="hero-card">
+                <div class="avatar">AK</div>
+                <h2>Welcome to My Portfolio</h2>
+                <p style="font-size: 1.1em; margin: 20px 0;">
+                    Software Development Specialist at Custom Department Ministry of Finance, specializing in 
+                    redeveloping ASYCUDA systems. Experienced in Java EE, Vue.js, Oracle Database, and modern 
+                    enterprise technologies including Keycloak, Nginx, and Microprofile.
+                </p>
+                <div class="contact-buttons">
+                    <button class="btn" onclick="openContactModal()">📧 Contact Me</button>
+                    <a href="https://github.com/khatab420" target="_blank" class="btn btn-secondary">💻 GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div id="experience" class="section">
+            <h2>Work Experience</h2>
+            
+            <div class="card">
+                <h3>💻 Software Development Specialist</h3>
+                <p class="job-title">Custom Department Ministry of Finance</p>
+                <p class="duration">3 months ago - Present</p>
+                <p>Leading the redevelopment of ASYCUDA systems, implementing modern enterprise solutions using 
+                Java EE, Vue.js, and Oracle Database. Working with cutting-edge technologies including Keycloak 
+                for authentication, Nginx for web services, and Microprofile for microservices architecture.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌐 Network Sub-Director</h3>
+                <p class="job-title">Ministry of Finance</p>
+                <p class="duration">2021 - 3 months ago</p>
+                <p>Led network infrastructure management and IT operations for the Ministry of Finance, 
+                ensuring secure and reliable technology systems across the organization. Responsible for network 
+                architecture, security protocols, and team leadership.</p>
+            </div>
+
+            <div class="card">
+                <h3>🎓 Computer Science Instructor</h3>
+                <p class="job-title">Hiwad University</p>
+                <p class="duration">2024 - Present</p>
+                <p>Teaching computer science courses, mentoring students in software development, 
+                and sharing industry best practices with the next generation of developers. Focus areas include 
+                Java programming, software engineering principles, and modern development practices.</p>
+            </div>
+
+            <div class="card">
+                <h3>💻 IT Professional</h3>
+                <p class="job-title">NSIA</p>
+                <p class="duration">2012 - 2019</p>
+                <p>Provided comprehensive IT solutions, system administration, and technical support. 
+                Developed strong foundations in enterprise technology management, network administration, 
+                and IT infrastructure optimization.</p>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education" class="section">
+            <h2>Education</h2>
+            
+            <div class="card">
+                <h3>🎓 Master's Degree in Information Systems</h3>
+                <p class="job-title">Kabul University</p>
+                <p class="duration">2022 - 2025</p>
+                <p>Advanced studies in Information Systems, focusing on enterprise architecture, 
+                system design, and modern IT management practices.</p>
+            </div>
+
+            <div class="card">
+                <h3>🎓 Bachelor's Degree in Computer Science</h3>
+                <p class="job-title">Kandahar University</p>
+                <p class="duration">2015 - 2019</p>
+                <p>Comprehensive computer science education covering programming fundamentals, 
+                algorithms, data structures, software engineering, and computer systems.</p>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="section">
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>☕ Java Development</h4>
+                    <div class="skill-tag">Java EE</div>
+                    <div class="skill-tag">Core Java</div>
+                    <div class="skill-tag">Microprofile</div>
+                    <div class="skill-tag">REST APIs</div>
+                    <div class="skill-tag">Microservices</div>
+                    <div class="skill-tag">Enterprise Applications</div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>🌐 Frontend & Web</h4>
+                    <div class="skill-tag">Vue.js</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">HTML/CSS</div>
+                    <div class="skill-tag">Responsive Design</div>
+                    <div class="skill-tag">SPA Development</div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>🗄️ Database & Infrastructure</h4>
+                    <div class="skill-tag">Oracle Database</div>
+                    <div class="skill-tag">SQL</div>
+                    <div class="skill-tag">Database Design</div>
+                    <div class="skill-tag">Keycloak</div>
+                    <div class="skill-tag">Nginx</div>
+                    <div class="skill-tag">Authentication</div>
+                    <div class="skill-tag">ASYCUDA Systems</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:esmatullahsangary@gmail.com" style="color: #06b6d4;">esmatullahsangary@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <div>
+                        <strong>Phone/WhatsApp:</strong><br>
+                        <a href="tel:+93774157887" style="color: #06b6d4;">+93 774 157 887</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <div>
+                        <strong>GitHub:</strong><br>
+                        <a href="https://github.com/khatab420" target="_blank" style="color: #06b6d4;">github.com/khatab420</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function openContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

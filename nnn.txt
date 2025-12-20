@@ -1,0 +1,70 @@
+Work experience
+
+2021 -Till now
+Ministry of Finance
+Network Sub-Director
+
+2019-2012
+NSIA
+IT Professional 
+
+2024- Till now
+Hiwad University
+CS Instructor 
+
+
+Education
+2022-2025 Master Degree IS Department Kabul University
+
+2015-2019
+CS Faculty Kandahar University
+
+Personal Information
+
+Name:Asmatullah khataab
+
+
+
+Java Developer Essential Technologies
+Core Java: Strong understanding of OOP, collections, multithreading, and exception handling.
+
+Spring Framework (Spring Boot, Spring Cloud): For building enterprise applications, microservices, and REST APIs.
+
+Hibernate/JPA: ORM for database interaction.
+
+Maven/Gradle: Build and dependency management tools.
+
+JUnit/TestNG: Unit testing frameworks.
+
+Microservices Architecture: Designing distributed systems with APIs.
+
+Docker & Kubernetes: Containerization and orchestration for deploying Java apps.
+
+Cloud Platforms (AWS, Azure, GCP): Hosting and scaling applications.
+
+Reactive Programming (Project Reactor, RxJava): For high-performance, event-driven applications.
+
+CI/CD Tools (Jenkins, GitHub Actions): Automating builds and deployments.
+
+Sources: 
+
+⚙️ DevOps Engineer Essential Technologies
+Linux Administration: Core OS knowledge for servers.
+
+Version Control (Git/GitHub/GitLab): Managing source code and collaboration.
+
+CI/CD Pipelines (Jenkins, GitLab CI, CircleCI): Automating integration and deployment.
+
+Containerization (Docker): Packaging applications consistently.
+
+Orchestration (Kubernetes): Managing clusters and scaling apps.
+
+Infrastructure as Code (Terraform, Ansible): Automating infrastructure setup.
+
+Monitoring & Logging (Prometheus, Grafana, ELK Stack): Observability and troubleshooting.
+
+Cloud Platforms (AWS, Azure, GCP): Deploying and managing workloads.
+
+Networking & Security: Firewalls, SSL/TLS, IAM policies.
+
+Scripting (Python, Bash): Automating repetitive tasks.
