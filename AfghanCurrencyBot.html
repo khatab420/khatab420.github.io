@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Bot Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            scroll-snap-align: start;
+            position: relative;
+        }
+
+        /* Slide 1 - Title */
+        .slide-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .slide-1 h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        .slide-1 .subtitle {
+            font-size: 1.8rem;
+            opacity: 0.9;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .slide-1 .tech-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 24px;
+            border-radius: 30px;
+            margin: 10px;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Slide 2 - Architecture */
+        .slide-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .slide-2 h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .architecture-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1000px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .arch-item {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            font-size: 1.3rem;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .arch-item .icon {
+            font-size: 2.5rem;
+            margin-right: 20px;
+            min-width: 60px;
+        }
+
+        /* Slide 3 - Technical Challenges */
+        .slide-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .slide-3 h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .challenge-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .challenge-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .challenge-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .challenge-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Slide 4 - Code Architecture */
+        .slide-4 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .slide-4 h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .code-flow {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .code-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        /* Slide 5 - Tech Stack */
+        .slide-5 {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+
+        .slide-5 h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: scale(1.05);
+        }
+
+        .tech-card .emoji {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .tech-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Slide 6 - Performance */
+        .slide-6 {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+        }
+
+        .slide-6 h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .stat-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .stat-box .big-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .stat-box .number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-box .label {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Slide 7 - Contact */
+        .slide-7 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .slide-7 h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .slide-7 .message {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .contact-item {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item .icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .navigation {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background: white;
+            transform: scale(1.5);
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+            
+            .slide-1 h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide h2 {
+                font-size: 2rem !important;
+            }
+            
+            .challenges-grid, .tech-grid, .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container" id="slideContainer">
+        <!-- Slide 1: Title -->
+        <div class="slide slide-1">
+            <h1>🔧 Automated Currency Scraper & Telegram Bot</h1>
+            <p class="subtitle">Real-time Exchange Rates with Web Scraping & API Integration</p>
+            <div>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Web Scraping</span>
+                <span class="tech-badge">Telegram Bot</span>
+                <span class="tech-badge">REST APIs</span>
+            </div>
+            <div class="slide-number">1/7</div>
+        </div>
+
+        <!-- Slide 2: Architecture -->
+        <div class="slide slide-2">
+            <h2>🏗️ Architecture Highlights</h2>
+            <div class="architecture-box">
+                <div class="arch-item">
+                    <span class="icon">📊</span>
+                    <span><strong>Data Aggregation:</strong> Multi-source scraping with Cheerio + Axios</span>
+                </div>
+                <div class="arch-item">
+                    <span class="icon">🔄</span>
+                    <span><strong>Fallback System:</strong> Primary/secondary API with automatic failover</span>
+                </div>
+                <div class="arch-item">
+                    <span class="icon">⚡</span>
+                    <span><strong>Real-time Processing:</strong> Event-driven architecture with 5-min intervals</span>
+                </div>
+                <div class="arch-item">
+                    <span class="icon">🪙</span>
+                    <span><strong>Crypto Integration:</strong> CoinGecko API for BTC, ETH, BNB, ADA, DOGE</span>
+                </div>
+                <div class="arch-item">
+                    <span class="icon">🤖</span>
+                    <span><strong>Bot Framework:</strong> node-telegram-bot-api with polling</span>
+                </div>
+                <div class="arch-item">
+                    <span class="icon">🛡️</span>
+                    <span><strong>Error Handling:</strong> Comprehensive try-catch with graceful degradation</span>
+                </div>
+            </div>
+            <div class="slide-number">2/7</div>
+        </div>
+
+        <!-- Slide 3: Technical Challenges -->
+        <div class="slide slide-3">
+            <h2>💡 Technical Challenges Solved</h2>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="emoji">⏱️</div>
+                    <h3>Rate Limiting</h3>
+                    <p>Managed API limits across multiple sources with intelligent fallback</p>
+                </div>
+                <div class="challenge-card">
+                    <div class="emoji">🔀</div>
+                    <h3>Async Patterns</h3>
+                    <p>Concurrent data fetching with async/await for optimal performance</p>
+                </div>
+                <div class="challenge-card">
+                    <div class="emoji">💱</div>
+                    <h3>Currency Conversion</h3>
+                    <p>Cross-rate algorithms for 13+ currency pairs against AFN</p>
+                </div>
+                <div class="challenge-card">
+                    <div class="emoji">🕐</div>
+                    <h3>Timezone Handling</h3>
+                    <p>Accurate timestamps for Asia/Kabul timezone</p>
+                </div>
+                <div class="challenge-card">
+                    <div class="emoji">🌐</div>
+                    <h3>Bilingual Support</h3>
+                    <p>RTL message templating for Persian & Pashto</p>
+                </div>
+                <div class="challenge-card">
+                    <div class="emoji">📢</div>
+                    <h3>Dual Delivery</h3>
+                    <p>Channel broadcasting vs. user commands</p>
+                </div>
+            </div>
+            <div class="slide-number">3/7</div>
+        </div>
+
+        <!-- Slide 4: Code Architecture -->
+        <div class="slide slide-4">
+            <h2>💻 Code Architecture Flow</h2>
+            <div class="code-flow">
+                <div class="flow-step">🌐 Web Scraping</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">🔄 Data Normalization</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">💱 Currency Conversion</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">🛡️ Error Recovery</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">🤖 Bot API</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">📝 Message Formatting</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">📤 Channel/User Delivery</div>
+                
+                <div class="code-box">
+// Fallback Pattern
+try {
+  return await primaryAPI();
+} catch {
+  try {
+    return await backupAPI();
+  } catch {
+    return await webScraping();
+  }
+}
+                </div>
+            </div>
+            <div class="slide-number">4/7</div>
+        </div>
+
+        <!-- Slide 5: Tech Stack -->
+        <div class="slide slide-5">
+            <h2>🛠️ Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="emoji">🟢</div>
+                    <h3>Node.js</h3>
+                    <p>Runtime Environment</p>
+                </div>
+                <div class="tech-card">
+                    <div class="emoji">🕸️</div>
+                    <h3>Cheerio</h3>
+                    <p>Web Scraping</p>
+                </div>
+                <div class="tech-card">
+                    <div class="emoji">📡</div>
+                    <h3>Axios</h3>
+                    <p>HTTP Client</p>
+                </div>
+                <div class="tech-card">
+                    <div class="emoji">🤖</div>
+                    <h3>Telegram API</h3>
+                    <p>Bot Framework</p>
+                </div>
+                <div class="tech-card">
+                    <div class="emoji">🔌</div>
+                    <h3>REST APIs</h3>
+                    <p>Data Sources</p>
+                </div>
+                <div class="tech-card">
+                    <div class="emoji">⚡</div>
+                    <h3>Async/Await</h3>
+                    <p>Async Patterns</p>
+                </div>
+            </div>
+            <div class="slide-number">5/7</div>
+        </div>
+
+        <!-- Slide 6: Performance -->
+        <div class="slide slide-6">
+            <h2>📊 Performance Metrics</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="big-emoji">⚡</div>
+                    <div class="number">&lt;1s</div>
+                    <div class="label">Response Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big-emoji">✅</div>
+                    <div class="number">99%+</div>
+                    <div class="label">Uptime</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big-emoji">💱</div>
+                    <div class="number">13</div>
+                    <div class="label">Forex Pairs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big-emoji">🪙</div>
+                    <div class="number">5</div>
+                    <div class="label">Crypto Pairs</div>
+                </div>
+            </div>
+            <div class="slide-number">6/7</div>
+        </div>
+
+        <!-- Slide 7: Contact -->
+        <div class="slide slide-7">
+            <h2>🚀 Let's Connect!</h2>
+            <p class="message">Open to discussing technical implementation<br>and similar data pipeline challenges</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="icon">💼</span>
+                    <span>LinkedIn: [Your Profile]</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">💻</span>
+                    <span>GitHub: [Your Repo]</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">📧</span>
+                    <span>Email: [Your Email]</span>
+                </div>
+            </div>
+            <div class="slide-number">7/7</div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(1)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(2)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(3)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(4)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(5)"></div>
+        <div class="nav-dot" onclick="scrollToSlide(6)"></div>
+    </div>
+
+    <script>
+        function scrollToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+            
+            // Update active dot
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Update active dot on scroll
+        const container = document.getElementById('slideContainer');
+        container.addEventListener('scroll', () => {
+            const slides = document.querySelectorAll('.slide');
+            const scrollPos = container.scrollTop + window.innerHeight / 2;
+            
+            slides.forEach((slide, index) => {
+                const slideTop = slide.offsetTop;
+                const slideBottom = slideTop + slide.offsetHeight;
+                
+                if (scrollPos >= slideTop && scrollPos < slideBottom) {
+                    document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const slides = document.querySelectorAll('.slide');
+            const currentSlide = Math.round(container.scrollTop / window.innerHeight);
+            
+            if (e.key === 'ArrowDown' && currentSlide < slides.length - 1) {
+                scrollToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowUp' && currentSlide > 0) {
+                scrollToSlide(currentSlide - 1);
+            }
+        });
+    </script>
+</body>
+</html>
