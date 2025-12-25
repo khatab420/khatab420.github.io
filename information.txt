@@ -1,0 +1,64 @@
+Experience
+2019 january 1    -  2023 december 31 PARK TELECOM TECHNOLOGY as a software developer
+2024-4-1     2025-4-31 Software Developer kra.af
+(Kunduz Rehabilitation Agency (KRA) an NGO established in 1995 as an off shoot of Afghanaid international UK NGO in Kunduz city of Kunduz Province,
+ believes in working with people, down trodden, disadvantaged, vulnerable groups to motivate people’s Action to work towards their development.)
+2025- until now Golden Sun Trading Company  as Web and Database System Developer
+
+
+name Asmatullah Khataab
+email:esmatullahsangary@gmail.com
+profile:https://khatab420.github.io/
+github:https://github.com/khatab420
+
+
+Education:
+Bechlor:2015-2019 Kandahar University (Computer Science)
+Master:2023-2025 Kabul University (Computer Science)
+English Deploma:Muslim English Language Institute
+
+
+Skills:
+Programming Language: JAVA,JAVASCRIPT
+Framwork:JAVA EE,Spring Boot, React
+Database:SQL & NO SQL Databases
+CI/CD Pipeline , Docker & Kubernetes , JWT& auth2, 
+DevOps
+
+Microservices
+
+Cloud-Native Development
+
+Containerization
+
+Orchestration
+
+Serverless Computing
+
+Agile Methodologies
+
+Continuous Integration / Continuous Deployment (CI/CD)
+
+Infrastructure as Code (IaC)
+
+API-First Design
+
+Event-Driven Architecture
+
+Observability
+
+Security by Design (DevSecOps)
+
+Edge Computing
+
+Artificial Intelligence / Machine Learning Integration
+
+Low-Code / No-Code Platforms
+
+Blockchain Applications
+
+API Gateways & Service Meshes
+
+Test Automation
+
+Continuous Monitoring
