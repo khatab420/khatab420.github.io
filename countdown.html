@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy · Count Down</title>
+    <title>Privacy Policy · Count Down (with AdMob)</title>
     <style>
         * {
             margin: 0;
@@ -11,19 +11,19 @@
             box-sizing: border-box;
         }
         body {
-            background: #f2f5fc;
+            background: #f2f6fe;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             padding: 2rem 1rem;
             line-height: 1.7;
             color: #0d1d30;
         }
         .container {
-            max-width: 820px;
+            max-width: 850px;
             margin: 0 auto;
             background: white;
             padding: 2.5rem 2.5rem;
-            border-radius: 30px;
-            box-shadow: 0 16px 40px -8px rgba(0, 20, 40, 0.10);
+            border-radius: 32px;
+            box-shadow: 0 18px 42px -10px rgba(0, 20, 40, 0.10);
             border: 1px solid rgba(210, 225, 250, 0.5);
         }
         h1 {
@@ -151,18 +151,30 @@
         <span class="muted">Last updated: July 2026</span>
     </div>
 
-    <p>Thank you for using <strong>Count Down</strong>. This privacy policy explains how we collect, use, and protect your information when you use our application. We are committed to transparency and to keeping your data private and secure.</p>
+    <p>Thank you for using <strong>Count Down</strong>. This privacy policy explains how we collect, use, and protect your information when you use our application. We value your privacy and are committed to being transparent about our data practices.</p>
 
     <div class="highlight-box">
-        <strong>🔒 Quick summary</strong><br>
-        • <strong>Zero data collection</strong> – we do not collect any personally identifiable information.<br>
-        • All timer, alarm, and schedule data is stored <strong>locally</strong> on your device using SQLite.<br>
-        • No data is transmitted to external servers or third parties.<br>
-        • The only permission used is <strong>Alarm Access</strong> to set alarms and manage countdowns – and it is used strictly for that purpose.
+        <strong>🔍 Quick summary</strong><br>
+        • <strong>No personal data is collected by the app itself.</strong> All timers, alarms, and schedules are stored locally.<br>
+        • We use <strong>Google AdMob</strong> to display ads. AdMob may collect device identifiers, IP address, and ad interaction data.<br>
+        • The only permission used is <strong>Alarm Access</strong> – used solely to set alarms and manage countdowns.<br>
+        • No data is shared with any third party except through the standard AdMob SDK.
     </div>
 
     <h2>1. Information we collect</h2>
+
+    <h3>App‑provided data (local only)</h3>
     <p><strong>We do not collect any personally identifiable information from users.</strong> The app does not request, store, or transmit your name, email, location, contacts, or any personal data. All timer and scheduling data (e.g., countdown names, alarm times, repeat settings) are stored exclusively in a local SQLite database on your device. This data never leaves your device.</p>
+
+    <h3>Data collected via AdMob (third‑party advertising)</h3>
+    <p>We use <strong>Google AdMob</strong> to serve advertisements. AdMob may collect the following information to deliver and personalize ads:</p>
+    <ul>
+        <li><strong>IP address</strong> – used for geolocation (country/region) and ad targeting.</li>
+        <li><strong>Android Advertising ID (AAID)</strong> – an anonymized identifier for ad personalization and frequency capping.</li>
+        <li><strong>Device &amp; network data</strong> – model, OS version, carrier, language, screen size, and network type.</li>
+        <li><strong>Ad interaction</strong> – impressions, clicks, and engagement metrics for campaign performance.</li>
+    </ul>
+    <p>All AdMob data is handled under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>. We receive only aggregated reports and do not have access to personally identifiable information (PII).</p>
 
     <h2>2. Permissions</h2>
     <p>The app requests only the minimal permissions needed to provide its core functionality. Below is the permission we use and its purpose:</p>
@@ -175,19 +187,31 @@
 
     <h2>3. Data storage &amp; security</h2>
     <p>All data – saved timers, alarms, countdown schedules, and preferences – is stored <strong>locally</strong> on your device using a SQLite database. We do not sync, backup, or upload any data to external servers or cloud services. Since all data remains on your device, you have full control over it. You can clear all app data at any time via your device settings (Settings → Apps → Count Down → Storage → Clear Data) or by uninstalling the app.</p>
+    <p>AdMob data is transmitted over HTTPS and handled according to Google’s security standards.</p>
 
     <h2>4. Third‑party services</h2>
-    <p><strong>The app does not integrate with any third‑party services</strong> for data collection, analytics, crash reporting, or advertising. We do not use any SDKs that track user behaviour or share data with external platforms. The app is self‑contained and does not communicate with any external servers.</p>
+    <p>We integrate exclusively with <strong>Google AdMob</strong> for advertising. No other third‑party SDKs (analytics, crash reporting, or tracking) are used. AdMob may collect device information as described above. For more details, please review Google’s privacy policy:</p>
+    <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+        <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob Data Use</a></li>
+    </ul>
 
-    <h2>5. Children’s privacy</h2>
-    <p>Count Down is not intended for children under 13 years of age. We do not knowingly collect any personal information from children. As we collect no data at all, there is no risk of unintentional data collection from minors.</p>
+    <h2>5. Your choices &amp; control</h2>
+    <ul>
+        <li><strong>Ad personalization opt‑out:</strong> On your device, go to <em>Settings → Google → Ads</em> and enable “Opt out of Ads Personalization” or reset your advertising ID.</li>
+        <li><strong>Permission management:</strong> You can revoke the alarm permission via your device’s app settings. Note that this will disable alarm features.</li>
+        <li><strong>Data deletion:</strong> Since all data is local, you can delete it by clearing app data or uninstalling the app.</li>
+    </ul>
 
-    <h2>6. Changes to this privacy policy</h2>
+    <h2>6. Children’s privacy</h2>
+    <p>Count Down is not intended for children under 13 years of age. We do not knowingly collect any personal information from children. As we collect no data ourselves, there is no risk of unintentional data collection from minors. AdMob may use age‑screening parameters to serve non‑personalized ads to users under the age of consent.</p>
+
+    <h2>7. Changes to this privacy policy</h2>
     <p>We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. Any updates will be posted on this page with a revised “Effective Date” at the top. We encourage you to review this policy periodically. If we make significant changes, we will notify you through the app or via the Google Play listing.</p>
 
     <div class="divider"></div>
 
-    <h2>7. Contact us</h2>
+    <h2>8. Contact us</h2>
     <p>If you have any questions, concerns, or feedback about this privacy policy or the Count Down app, please reach out to us directly. We are here to help.</p>
     <div style="background: #f0f6ff; padding: 0.5rem 1.8rem; border-radius: 60px; display: inline-block; margin: 0.4rem 0 1rem 0;">
         <span style="font-weight: 500;">📧 esmatullahsangary@gmail.com</span>
