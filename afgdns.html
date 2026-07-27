@@ -156,6 +156,23 @@
             align-items: center;
             margin-bottom: 0.5rem;
         }
+        .ad-provider-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0.3rem 1rem;
+            background: #f9fcff;
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
+            margin: 0.8rem 0;
+            border: 1px solid #e7efff;
+        }
+        .ad-provider-name {
+            font-weight: 600;
+            color: #134078;
+        }
+        .ad-provider-desc {
+            color: #1e3a60;
+        }
         @media (max-width: 600px) {
             .container {
                 padding: 1.6rem 1rem;
@@ -164,12 +181,14 @@
                 font-size: 1.8rem;
                 padding-left: 0.8rem;
             }
-            .permission-grid {
+            .permission-grid,
+            .ad-provider-grid {
                 grid-template-columns: 1fr;
                 gap: 0.1rem;
                 padding: 0.8rem;
             }
-            .perm-desc {
+            .perm-desc,
+            .ad-provider-desc {
                 margin-bottom: 0.4rem;
             }
             .highlight-box {
@@ -209,6 +228,9 @@
         <p>
             Afg DNS does <strong>NOT</strong> collect, store, share, or sell any personal or non-personal user data. All DNS queries are processed locally on your device and sent directly to your selected DNS provider. No information is logged, recorded, or transmitted to any third-party servers by this application.
         </p>
+        <p>
+            <em>Note:</em> Third-party advertising networks (Yandex Ads and Google AdMob) may collect certain data as described in the <strong>Advertising</strong> section below. This data is handled by those networks according to their own privacy policies.
+        </p>
 
         <!-- Permissions -->
         <h2>📱 Permissions Used</h2>
@@ -239,7 +261,7 @@
             <span class="perm-desc"><em>Optional Feature</em> – Enables the "Auto-Start on Boot" feature. If you enable this setting, the app will automatically start DNS protection when your device boots up. You can disable this feature at any time within app settings.</span>
         </div>
 
-        <!-- NEW: QUERY_ALL_PACKAGES permission -->
+        <!-- QUERY_ALL_PACKAGES -->
         <div class="permission-grid" style="border-left: 4px solid #1a73e8; background: #f0f7ff;">
             <span class="perm-name">📋 QUERY_ALL_PACKAGES</span>
             <span class="perm-desc">
@@ -270,14 +292,39 @@
 
         <!-- Advertising -->
         <h2>📢 Advertising</h2>
-        <p>Afg DNS may display advertisements through Google AdMob. Important information about ads:</p>
+        <p>Afg DNS may display advertisements through <strong>Yandex Ads</strong> and <strong>Google AdMob</strong>. Important information about ads:</p>
+
+        <h3 style="margin-top: 1.2rem; font-size:1.1rem;">Yandex Ads</h3>
+        <p>
+            We use Yandex Ads to serve advertisements. Yandex may collect and process the following information to deliver and personalize ads:
+        </p>
         <ul>
-            <li>❌ No personal information is collected by Afg DNS for advertising</li>
-            <li>📱 Ad-related data (such as device identifiers) may be processed by Google according to their <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
-            <li>🎯 Users can opt-out of personalized advertising through their device settings</li>
-            <li>👶 The app is designed to comply with COPPA and GDPR requirements</li>
+            <li><strong>Device identifiers</strong> (e.g., Android Advertising ID)</li>
+            <li><strong>IP address</strong> – used for geolocation and ad targeting</li>
+            <li><strong>Device and network data</strong> – model, OS version, carrier, language, screen size, network type</li>
+            <li><strong>Ad interaction</strong> – impressions, clicks, and other engagement metrics</li>
         </ul>
-        <p>For more information, visit: <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">Google Ad Serving Policies</a></p>
+        <p>
+            All data collected by Yandex Ads is handled in accordance with the
+            <a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">Yandex Privacy Policy</a>.
+            We do not have access to personally identifiable information (PII) from Yandex; we receive only aggregated reports.
+        </p>
+        <p>
+            You can opt out of interest-based advertising from Yandex by adjusting your device settings (e.g., resetting your advertising ID or enabling "Opt out of Ads Personalization" in Google settings).
+        </p>
+
+        <h3 style="margin-top: 1.2rem; font-size:1.1rem;">Google AdMob</h3>
+        <p>
+            We also use Google AdMob, which may collect similar data (device identifiers, IP, network info, ad interactions) as described in
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>.
+            AdMob data is used for ad personalization and campaign performance.
+        </p>
+
+        <p style="margin-top: 1rem;">
+            ❌ <strong>No personal information is collected by Afg DNS itself</strong> for advertising purposes.<br />
+            📱 Ad-related data is processed exclusively by the third‑party ad networks according to their own policies.<br />
+            🎯 Users can opt out of personalized advertising through their device settings (Google Ads settings) or via Yandex’s opt‑out mechanisms.
+        </p>
 
         <!-- User Control -->
         <h2>⚙️ User Control</h2>
@@ -331,10 +378,10 @@
         <!-- Summary -->
         <div class="highlight-box">
             <strong>📌 Summary of Key Points:</strong><br />
-            ✅ <strong>Zero Data Collection</strong> – We don't collect any personal information<br />
+            ✅ <strong>Zero Data Collection by Afg DNS</strong> – We don't collect any personal information<br />
             ✅ <strong>Local VPN Only</strong> – No internet traffic is routed through external servers<br />
             ✅ <strong>Full User Control</strong> – Start/stop protection anytime, plus per‑app exclusion<br />
-            ✅ <strong>Transparent Advertising</strong> – Only Google AdMob with standard data practices<br />
+            ✅ <strong>Third‑Party Ads</strong> – Yandex Ads and Google AdMob may collect device data as per their policies<br />
             ✅ <strong>Open Communication</strong> – Contact us with any questions
         </div>
 
